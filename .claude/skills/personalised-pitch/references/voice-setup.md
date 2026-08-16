@@ -6,10 +6,12 @@ TTS (breath intakes, hesitation beats, micro pitch inflections). Repo:
 https://github.com/resemble-ai/chatterbox
 
 Model strategy — pick per machine (`model.repo_id` in `chatterbox-server/config.yaml`):
-- **GPU machine**: `chatterbox` (original 500M) — maximum quality. This is what
-  `config.yaml` in this repo is set to. Fast on any recent NVIDIA card.
-- **CPU-only machine**: `chatterbox-turbo` (350M) — near-original quality, roughly
-  realtime to ~2–5 min per minute of audio on CPU. Nano (110M) for drafts only.
+- **GPU machine (NVIDIA CUDA or Apple Silicon MPS)**: `chatterbox` (original 500M) —
+  maximum quality. This is what `config.yaml` in this repo is set to. Fast on any
+  recent NVIDIA card; comfortably usable on M-series Macs.
+- **CPU-only machine (including Intel Macs)**: `chatterbox-turbo` (350M) —
+  near-original quality, roughly realtime to ~2–5 min per minute of audio on CPU.
+  Nano (110M) for drafts only.
 - **Tag support differs**: Turbo/Nano support paralinguistic tags (`[laugh]`,
   `[chuckle]`, `[cough]`, `[sigh]`); the **original model does NOT** — with
   `repo_id: chatterbox` it will read tags aloud, so keep them out of scripts and
@@ -33,8 +35,12 @@ its launcher, which auto-detects hardware and installs the matching PyTorch buil
 - Linux/macOS: `cd chatterbox-server && python3 start.py`
 - Skip the interactive menu with flags: `--nvidia` (CUDA 12.1, RTX 20/30/40),
   `--nvidia-cu128` (RTX 50 series), `--rocm` (AMD), `--cpu`.
+- macOS: pick the default/CPU install (or `--cpu`) — standard macOS PyTorch wheels
+  include MPS (Metal GPU), and the launcher auto-applies an MPS float32 patch to the
+  chatterbox package. Always install via the launcher on Macs, not manual pip.
 Model weights download from Hugging Face on first run (a few GB, one time).
-`config.yaml` ships with `device: auto`, so a CUDA GPU is used when present.
+`config.yaml` ships with `device: auto`, which resolves CUDA → MPS (Apple Silicon)
+→ CPU, so the best available device is used with no config edits.
 
 Setup steps:
 1. Copy the user's sample into the server's `reference_audio/` folder as `user.wav`.
