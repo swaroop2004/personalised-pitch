@@ -1,0 +1,16 @@
+# Machine-local TTS server state — recreated by chatterbox-server's launcher
+chatterbox-server/python_embedded/
+chatterbox-server/venv/
+chatterbox-server/.venv/
+chatterbox-server/model_cache/
+chatterbox-server/outputs/
+chatterbox-server/logs/
+chatterbox-server/__pycache__/
+
+# Python
+__pycache__/
+*.pyc
+
+# OS
+.DS_Store
+Thumbs.db
