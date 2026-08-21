@@ -38,9 +38,15 @@ Schedule: 03:30 UTC (09:00 IST) daily; GitHub crons can slip ~15 min.
 
 1. **Keep this repo private** — it contains your voice sample and unreleased outreach.
 2. Repo → *Settings → Secrets and variables → Actions*, add:
-   - `ANTHROPIC_API_KEY` *or* `OPENAI_API_KEY` — powers opencode in CI
-   - *(optional)* variable `MODEL` = `provider/model-id` to pin the model; otherwise
-     opencode's default is used.
+   - `OPENROUTER_API_KEY` — [openrouter.ai/keys](https://openrouter.ai/keys).
+     **Recommended:** make the one-time **$10 credit top-up** on the OpenRouter
+     account — free-model limits jump from **50 to 1,000 requests/day**, and one
+     agent run needs ~60–120 calls. The $10 sits unused unless you call paid models.
+   - *(optional)* variable `MODEL` = `provider/model-id`; defaults to
+     `openrouter/nvidia/nemotron-3-ultra-550b-a55b:free`. Free endpoints get delisted
+     often — if a run fails with model-not-found, pick any current `:free` model with
+     the **Tools** tag from [openrouter.ai/models?q=free](https://openrouter.ai/models?q=free)
+     (or `openrouter/free`, which routes to whichever capable model is up) and set it here.
 3. Push this branch to master, then test with *Actions → daily-pitch → Run workflow*
    and a company name in the input (e.g. `olipop.com`) before trusting the cron.
 
@@ -57,9 +63,10 @@ Schedule: 03:30 UTC (09:00 IST) daily; GitHub crons can slip ~15 min.
 
 ### Cost per day
 
-LLM tokens for the research/build agent only at current scope — roughly $0.15–0.50/day
-on Sonnet-class models; Actions minutes are free-tier. Voice adds ~$0.05–0.10/pitch
-once enabled.
+**$0 at current scope** — free-tier OpenRouter model + free-tier Actions minutes.
+Voice adds ~$0.05–0.10/pitch once enabled. If free-model flakiness gets annoying,
+`vars.MODEL` swaps to a cheap paid model (e.g. `openai/gpt-oss-120b`, ~$0.04/1M in)
+for cents per run with no rate limits.
 
 ### Manual / local alternative
 

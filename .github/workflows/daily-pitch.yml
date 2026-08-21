@@ -24,9 +24,11 @@ jobs:
     timeout-minutes: 40
     env:
       COMPANY: ${{ inputs.company }}
-      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-      MODEL: ${{ vars.MODEL }}
+      OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+      # Free-tier OpenRouter by default; override via repo variable MODEL.
+      # If this :free endpoint gets delisted (they churn often), set MODEL to another
+      # Tools-capable :free model or 'openrouter/free' (random-capable-model router).
+      MODEL: ${{ vars.MODEL || 'openrouter/nvidia/nemotron-3-ultra-550b-a55b:free' }}
     steps:
       - uses: actions/checkout@v4
 
