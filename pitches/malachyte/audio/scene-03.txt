@@ -1,0 +1,3 @@
+Every stalled integration is a pilot that doesn't convert. An enterprise architect who can't find your SLA docs? That's a deal that slips to next quarter. A Shopify agency that hits a 404 on your API reference? They recommend Rebuy instead — because Rebuy's docs exist.
+
+You're spending ten million on distribution. The docs are the on-ramp. Right now, the on-ramp ends at "Overview."

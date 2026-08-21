@@ -1,0 +1,3 @@
+But then I went to docs.malachyte.com.
+
+Your Shopify install guide? Solid. Headless overview? Good start. But — no OpenAPI spec. No TypeScript SDK. No webhook event catalog. No error codes. No "Switching from Rebuy" guide. A developer trying to go headless today? They're reading blog posts to reverse-engineer your contracts.

@@ -1,0 +1,5 @@
+We're Manicule. AI-native technical documentation studio for developer tools.
+
+We write the API reference your platform deserves — generated from OpenAPI, curated by humans, every code sample verified by AI agents against your live endpoints. SDK docs for TypeScript, Python, Ruby. Migration guides from Rebuy, Nosto, Dynamic Yield — so your comparison pages actually convert. Troubleshooting playbooks for the 100ms latency edge cases your devs will hit.
+
+Twenty-three days. That's our Supermemory turnaround. Same stack. Same urgency.

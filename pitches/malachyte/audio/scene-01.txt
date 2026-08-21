@@ -1,0 +1,3 @@
+I was reading your Google Cloud blog post — the one where you break down the 100-millisecond Vector AI loop. Bigtable for user vectors. Managed Kafka for the event stream. GKE serving the model. That architecture is exactly what retail AI has been missing.
+
+You've got BRUNT Workwear at plus 80 percent upsell click-through. Fun.com at 142 percent rec revenue growth. Jordan Craig at plus 17 percent new-visitor RPV. The product works. The math works. The funding just closed — ten million, Bessemer and Gradient.
