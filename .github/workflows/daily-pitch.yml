@@ -1,0 +1,82 @@
+name: daily-pitch
+
+on:
+  schedule:
+    # 03:30 UTC = 09:00 IST daily. GitHub crons are UTC and may slip ~15 min.
+    - cron: "30 3 * * *"
+  workflow_dispatch:
+    inputs:
+      company:
+        description: "Optional company name/URL — skips auto-discovery"
+        required: false
+        type: string
+
+concurrency:
+  group: daily-pitch
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  pitch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      COMPANY: ${{ inputs.company }}
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      MODEL: ${{ vars.MODEL }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install opencode CLI
+        run: sudo npm install -g opencode-ai@latest
+
+      - name: Run unattended pitch cycle (text through script)
+        run: |
+          ARGS=""
+          if [ -n "$MODEL" ]; then ARGS="--model $MODEL"; fi
+          MSG="Run today's unattended pitch cycle for a funded D2C ecommerce brand."
+          if [ -n "$COMPANY" ]; then MSG="Build an unattended pitch for $COMPANY"; fi
+          opencode run --agent daily-pitch --auto --print-logs $ARGS "$MSG"
+
+      - name: Check output exists
+        run: |
+          test -f automation/LAST_RUN.md || { echo "::error::LAST_RUN.md missing — agent crashed early"; exit 1; }
+          cat automation/LAST_RUN.md
+          SLUG=$(grep '^slug:' automation/LAST_RUN.md | cut -d' ' -f2)
+          STATUS=$(grep '^status:' automation/LAST_RUN.md | cut -d' ' -f2)
+          if [ "$STATUS" = "aborted" ]; then
+            echo "::warning::Run aborted by agent (see notes above)"
+            exit 1
+          fi
+          test -f "pitches/$SLUG/script.md" || { echo "::error::script.md missing for $SLUG"; exit 1; }
+          echo "SLUG=$SLUG" >> "$GITHUB_ENV"
+
+      - name: Commit results
+        run: |
+          git config user.name "pitch-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A pitches automation
+          if git diff --cached --quiet; then
+            echo "Nothing to commit"
+          else
+            git commit -m "pitch(bot): ${SLUG:-unknown} [skip ci]"
+            git push
+          fi
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pitch-${{ env.SLUG || 'unknown' }}
+          path: |
+            pitches/${{ env.SLUG }}/research.md
+            pitches/${{ env.SLUG }}/gap.md
+            pitches/${{ env.SLUG }}/script.md
+            pitches/${{ env.SLUG }}/visuals/
+          retention-days: 30
+          if-no-files-found: ignore
