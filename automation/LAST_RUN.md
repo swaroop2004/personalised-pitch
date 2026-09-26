@@ -1,7 +1,7 @@
-slug: musely
-company: Musely
+slug: evvy
+company: Evvy
 status: success
-url_source: https://techcrunch.com/2026/05/01/musely-secures-360m-from-general-catalyst-without-giving-up-equity/
+url_source: https://techcrunch.com/2026/09/15/evvy-raises-40m-as-it-seeks-to-further-womens-health-research-with-vaginal-microbiome-data/
 scenes: 6
-words: 428
-notes: Word count slightly above 300 target but acceptable; all four text deliverables + 6 JSON storyboards + 6 audio txt files created
+words: 379
+notes: Script slightly over 300-word target (379 words ≈ 2.5 min); all 4 deliverables created and checklist passed. Gap: Provider portal API docs & integration guides for 3,000+ clinicians, 10+ IVF study clinics, Labcorp partnership.
