@@ -1,0 +1,1 @@
+But your letter promises an API suite. A five-million research program. TinyAI on two hundred thousand profiles. The developer docs don't exist. No OpenAPI. No SDKs. No auth guides. GitHub has one repo — a hiring challenge. Support returns four-oh-three. Your pipeline — thMP, thDB, thDD, thMAP — zero technical docs. Engine built. Developer layer missing.

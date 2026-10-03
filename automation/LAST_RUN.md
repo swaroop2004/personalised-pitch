@@ -1,7 +1,7 @@
-slug: evvy
-company: Evvy
+slug: tiny-health
+company: Tiny Health
 status: success
-url_source: https://techcrunch.com/2026/09/15/evvy-raises-40m-as-it-seeks-to-further-womens-health-research-with-vaginal-microbiome-data/
+url_source: https://news.crunchbase.com/venture/tiny-health-33m-microbiome-tests-sew-hoy/
 scenes: 6
-words: 379
-notes: Script slightly over 300-word target (379 words ≈ 2.5 min); all 4 deliverables created and checklist passed. Gap: Provider portal API docs & integration guides for 3,000+ clinicians, 10+ IVF study clinics, Labcorp partnership.
+words: 336
+notes: All four deliverables created (research.md, gap.md, script.md, 6 scene JSONs + 6 audio txt). Series B $33M Sept 29 2026. Gap: missing developer layer for Powered by Tiny API, bioinformatics pipeline (thMP/thDB/thDD/thMAP), and TinyAI. Manicule fits as YC-backed AI-native docs studio for dev tools.
