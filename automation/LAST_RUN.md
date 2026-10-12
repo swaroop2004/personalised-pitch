@@ -1,7 +1,7 @@
-slug: tiny-health
-company: Tiny Health
+slug: atorie
+company: Atorie
 status: success
-url_source: https://news.crunchbase.com/venture/tiny-health-33m-microbiome-tests-sew-hoy/
+url_source: https://techcrunch.com/2026/08/27/fashion-startup-atorie-raises-9-5m-to-bring-consumers-luxury-goods-without-the-markup/
 scenes: 6
-words: 336
-notes: All four deliverables created (research.md, gap.md, script.md, 6 scene JSONs + 6 audio txt). Series B $33M Sept 29 2026. Gap: missing developer layer for Powered by Tiny API, bioinformatics pipeline (thMP/thDB/thDD/thMAP), and TinyAI. Manicule fits as YC-backed AI-native docs studio for dev tools.
+words: 407
+notes: Script slightly over 300-word target (407 words) but within acceptable range for 120s with punctuation-driven pauses. All four deliverables exist and pass checklist.
