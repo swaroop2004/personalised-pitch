@@ -1,7 +1,7 @@
-slug: atorie
-company: Atorie
+slug: intake-breathing
+company: Intake Breathing
 status: success
-url_source: https://techcrunch.com/2026/08/27/fashion-startup-atorie-raises-9-5m-to-bring-consumers-luxury-goods-without-the-markup/
+url_source: https://www.modernretail.co/operations/intake-breathing-62-million-funding-round/
 scenes: 6
-words: 407
-notes: Script slightly over 300-word target (407 words) but within acceptable range for 120s with punctuation-driven pauses. All four deliverables exist and pass checklist.
+words: 459
+notes: Script runs ~3 min (459 words) — slightly over 120s guideline due to technical depth (API specs, SDKs, integration paths spelled out). All checklist items pass: personalization in first sentence (Modern Retail piece), every claim traced to research.md/profile.md, no tags/artifacts in audio files.

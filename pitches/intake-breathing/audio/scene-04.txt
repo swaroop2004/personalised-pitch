@@ -1,0 +1,5 @@
+We're Manicule. We build developer documentation for developer tools. AI agents audit and test every code sample at scale. Humans own the architecture and the writing.
+
+In twenty-three days we delivered a complete rewrite for Supermemory — an AI memory API — and their answer success rate jumped thirty percent. Multiple enterprise deals closed because the docs finally worked.
+
+For you: OpenAPI three-point-one specs for every endpoint. Partner integration guides for dental, fitness, hospitality, retail EDI. A unified developer portal with auth, quickstarts, Node and Python SDKs, a changelog, a status page. Plus video walkthroughs and annotated screenshots for every integration path.

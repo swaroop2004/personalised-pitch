@@ -1,0 +1,3 @@
+But here's the thing. None of those surfaces have developer documentation. No OpenAPI specs. No authentication guides. No webhook references. No SDKs. No developer portal. No changelog.
+
+You're telling retail partners you're ready for mass distribution — but the only way to integrate is to email your engineering team and hope for a PDF. That's not a platform. That's a bottleneck.
